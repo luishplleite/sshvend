@@ -12,7 +12,7 @@ ativos='/etc/bot/lista_ativos'
 suspensos='/etc/bot/lista_suspensos'
 ShellBot.init --token "$api_bot" --monitor --return map --flush
 ShellBot.username
-fun_menu() {
+fun_assinar() {
     [[ "${message_from_id[$id]}" == "$id_admin" ]] && {
         local env_msg
         env_msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
@@ -883,7 +883,7 @@ sobremim() {
     msg+="<b>Desenvolvido por:</b> @vps_manager\n"
     msg+="<b>Canal Oficial:</b> @VPSMANAGER\n\n"
     msg+="Fui criado com o propósito de fornecer informações e ferramentas para gestão VPN em servidores 🐧 GNU/Linux 🐧.\n\n"
-    msg+="<b>Menu:</b> /menu\n"
+    msg+="<b>Assinar:</b> /Assinar\n"
     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --parse_mode html
@@ -1252,12 +1252,27 @@ restaure_backup() {
 msg_bem_vindo() {
     local msg
     msg="✌️😃 Ola <b>${message_from_first_name[$id]}</b>\n\nSEJA BEM VINDO(a)\n\n"
-    msg+="Para acessar o menu\nclick ou execute [ /menu ]\n\n"
-    msg+="Para obter informacoes\nclick ou execute [ /ajuda ]\n\n"
+    msg+="POlá, Bem Vindo A Br4G ?\n\n Escolha Umas das Opções Abaixo\n\n Click /Assinar para realizar Assinatura.\n\n Click /Teste para testar a internet.\n\n Click /BaixarApp Baixar aplicativo para conectat.\n\n Como Funcina, Click /Parte1 /Parte2 Saber como Funniona a Internet\n\n Para Lalar com Suporte, Click @sshluis
     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --parse_mode html
     return 0
+}
+
+@bot.message_handler(commands=['BaixarApp'])
+def BaixarApp(message):
+    doc = open('br.apk', 'rb')
+    bot.send_document(message.chat.id, doc)
+
+@bot.message_handler(commands=['Parte1'])
+def Parte1(message):
+    doc = open('video1.mp4', 'rb')
+    bot.send_document(message.chat.id, doc)
+
+@bot.message_handler(commands=['Parte2'])
+def Parte2(message):
+    doc = open('video2.mp4', 'rb')
+    bot.send_document(message.chat.id, doc)
 }
 
 fun_verif_limite_rev() {
@@ -1871,7 +1886,7 @@ while :; do
                     #comandos
                     comando=(${message_text[$id]})
                     [[ "${comando[0]}" = "/start" ]] && msg_bem_vindo
-                    [[ "${comando[0]}" = "/menu" ]] && fun_menu
+                    [[ "${comando[0]}" = "/assinar" ]] && fun_assinar
                     [[ "${comando[0]}" = "/info" ]] && infouserbot
                     [[ "${comando[0]}" = "/hrlp" || "${comando[0]}" = "/ajuda" ]] && fun_ajuda
                     [[ "${comando[0]}" = "/bot" || "${comando[0]}" = "/sobre" ]] && sobremim
