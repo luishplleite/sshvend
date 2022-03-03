@@ -70,7 +70,7 @@ fun_ajuda() {
         env_msg+="<b>BEM VINDO(a) AO BOT VPS MANAGER</b>\n"
         env_msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         env_msg+="⚠️ <i>Comandos Disponiveis</i>\n\n"
-        env_msg+="[<b>01</b>] /Assinar = Exibe menu\n"
+        env_msg+="[<b>01</b>] /menu = Exibe menu\n"
         env_msg+="[<b>02</b>] /info = Exibe informacoes\n"
         env_msg+="[<b>03</b>] /ajuda = Informacoes sobre opcoes\n\n"
         env_msg+="⚠️ <i>Opções Disponiveis</i>\n\n"
@@ -106,7 +106,7 @@ fun_ajuda() {
         env_msg+="<b>BEM VINDO(a) AO BOT VPS MANAGER</b>\n"
         env_msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         env_msg+="⚠️ <i>Comandos Disponiveis</i>\n\n"
-        env_msg+="[<b>01</b>] /Assinar = Exibe menu\n"
+        env_msg+="[<b>01</b>] /menu = Exibe menu\n"
         env_msg+="[<b>02</b>] /info = Exibe informacoes\n"
         env_msg+="[<b>03</b>] /ajuda = Informacoes sobre opcoes\n\n"
         env_msg+="⚠️ <i>Opções Disponiveis</i>\n\n"
@@ -132,7 +132,7 @@ fun_ajuda() {
         env_msg+="<b>BEM VINDO(a) AO BOT VPS MANAGER</b>\n"
         env_msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         env_msg+="⚠️ <i>Comandos Disponiveis</i>\n\n"
-        env_msg+="[<b>01</b>] /Assinar = Exibe menu\n"
+        env_msg+="[<b>01</b>] /menu = Exibe menu\n"
         env_msg+="[<b>02</b>] /info = Exibe informacoes\n"
         env_msg+="[<b>03</b>] /ajuda = Informacoes sobre opcoes\n\n"
         env_msg+="⚠️ <i>Opções Disponiveis</i>\n\n"
@@ -883,7 +883,7 @@ sobremim() {
     msg+="<b>Desenvolvido por:</b> @vps_manager\n"
     msg+="<b>Canal Oficial:</b> @VPSMANAGER\n\n"
     msg+="Fui criado com o propósito de fornecer informações e ferramentas para gestão VPN em servidores 🐧 GNU/Linux 🐧.\n\n"
-    msg+="<b>Menu:</b> /Assinar\n"
+    msg+="<b>Menu:</b> /menu\n"
     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --parse_mode html
@@ -1252,29 +1252,13 @@ restaure_backup() {
 msg_bem_vindo() {
     local msg
     msg="✌️😃 Ola <b>${message_from_first_name[$id]}</b>\n\nSEJA BEM VINDO(a)\n\n"
-    msg+="Olá, Bem Vindo A Br4G ?\n\n Escolha Umas das Opções Abaixo\n\n Click /Assinar para realizar Assinatura.\n\n Click /Teste para testar a internet.\n\n Click /BaixarApp Baixar aplicativo para conectat.\n\n Como Funcina, Click /Parte1 /Parte2 Saber como Funniona a Internet\n\n Para Lalar com Suporte, Click @sshluis"
-      ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
+    msg+="Para acessar o menu\nclick ou execute [ /menu ]\n\n"
+    msg+="Para obter informacoes\nclick ou execute [ /ajuda ]\n\n"
+    ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --parse_mode html
     return 0
 }
-
-@bot.message_handler(commands=['BaixarApp'])
-def BaixarApp(message):
-    doc = open('br.apk', 'rb')
-    bot.send_document(message.chat.id, doc)
-
-@bot.message_handler(commands=['Parte1'])
-def Parte1(message):
-    doc = open('video1.mp4', 'rb')
-    bot.send_document(message.chat.id, doc)
-
-@bot.message_handler(commands=['Parte2'])
-def Parte2(message):
-    doc = open('video2.mp4', 'rb')
-    bot.send_document(message.chat.id, doc)
-
-
 
 fun_verif_limite_rev() {
     _userrev=$1
