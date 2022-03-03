@@ -8,8 +8,8 @@ __Recomendado__
 
 __Instalar apenas o SCRIPT__
 
-```wget https://github.com/luishplleite/sshvend/main/Plus; chmod 777 Plus;./Plus```
+```wget https://github.com/luishplleite/sshvend/blob/main/Plus; chmod 777 Plus;./Plus```
 
 __Instalar o SCRIPT e atualizar pacotes do sistema__
 
-```apt-get update -y; apt-get upgrade -y; wget https://https://github.com/luishplleite/sshvend/main/Plus; chmod 777 Plus;./Plus```
+```apt-get update -y; apt-get upgrade -y; wget https://github.com/luishplleite/sshvend/blob/main/Plus; chmod 777 Plus;./Plus```
